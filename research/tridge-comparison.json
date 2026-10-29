@@ -1,0 +1,15 @@
+{
+  "reviewedAt":"2026-10-29",
+  "reference":"https://www.tridge.com/market-curations",
+  "disclaimer":"Public feature/source audit only. Tridge does not disclose a complete supplier list, and bulk extraction requires its written consent. No proprietary Tridge database or reports have been copied.",
+  "features":[
+    {"feature":"Country/product trade statistics","mvp":"Imported annual UN Comtrade values, weights and source flags for selected HS4 headings and countries; year/flow comparisons and CSV","gap":"Monthly data, bilateral partner breakdowns, finer product taxonomy and additional national customs feeds"},
+    {"feature":"Price research","mvp":"World Bank monthly agriculture benchmarks with source units and observations","gap":"Tridge's wholesale/farmgate/retail network, exact product specifications and private price contributions"},
+    {"feature":"Production","mvp":"USDA production observations with marketing years, source units and release vintages; FAOSTAT release catalog","gap":"Import FAOSTAT production and yield observations; broader crop coverage"},
+    {"feature":"Market curations","mvp":"Source-linked deterministic trade briefs, search and watchlists","gap":"Licensed news ingestion, editorial analysis, multilingual coverage and independently reviewed causal explanations"},
+    {"feature":"Companies and shipments","mvp":"Source-linked supplier-discovery plants from UK FSA, USDA AMS dairy, Ontario meat, India EIC and Ireland FSAI; published food-procurement buyers from UK Find a Tender and EU TED. International source snapshots retain establishment/notice identifiers, explicit geography, product/activity evidence and collection dates. India remains a snapshot with an automatic-refresh certificate warning","gap":"Verified commercial company/contact identities, live buying intent, current supplier offers, route-specific export clearance and customs shipment data. Plant registration and historical procurement are discovery evidence; they do not establish a current trading relationship. Country/product coverage remains bounded, and public access does not imply an open licence"},
+    {"feature":"Tariffs and access","mvp":"Official sources listed with access requirements","gap":"Tariff and sanitary/phytosanitary connectors, product/route rules and source permission checks"},
+    {"feature":"Automatic refresh","mvp":"Cloud writer, persisted snapshots, source logs and rotating country/year batches; schedule state shown by live status","gap":"Higher source limits/API keys for faster full-country cycles and monthly backfills"}
+  ],
+  "nextAccessDependencies":["Tridge written bulk-reuse permission or an agreed data partnership","UN Comtrade higher-throughput API access if expanded workloads require it","USDA FAS/AMS and WTO API keys where required","Licenses for private price, news and company/transaction data"]
+}

@@ -1,0 +1,70 @@
+{
+  "checkedAt": "2026-10-29T14:19:20.460Z",
+  "revision": "agriculture-data-v4",
+  "scope": "International buyer and supplier discovery",
+  "bootstrap": {
+    "newInternationalRecords": 1083,
+    "newInternationalCountries": 25,
+    "combinedCountries": 26,
+    "usdaDairyPlants": 245,
+    "ontarioMeatPlants": 401,
+    "indiaApprovalSnapshots": 237,
+    "irelandManufacturingWholesale": 48,
+    "tedBuyers": 152,
+    "tedBuyerCountries": 22
+  },
+  "validation": [
+    "official-source and country/role policies",
+    "bounded public refresh connectors and cooldowns",
+    "source failure and partial retention",
+    "expired and inactive approval filtering",
+    "no contact/address fields retained",
+    "country/source/evidence/role/product filters and full CSV",
+    "existing trade, price and schedule regressions",
+    "compiled module and Worker syntax",
+    "53 atomic discovery import rejection cases",
+    "independent scheduled helper legs and private credential isolation",
+    "scheduled UK refresh retains international collection",
+    "News-only refresh retains price relay metadata; regression added after live timestamp check"
+  ],
+  "limitations": [
+    "India automated refresh unavailable due certificate-chain validation; snapshot only, expiry-filtered. TLS validation remains enabled.",
+    "Records are source establishments or procurement organizations, not verified commercial counterparties.",
+    "Canadian source covers Ontario and does not establish export permission.",
+    "Existing daily schedule is enabled; first scheduled occurrence remains pending."
+  ],
+  "hostedVerification": {
+    "checkedAt": "2026-10-29T14:25:57.712Z",
+    "deployment": "appgdep_6ae3569e1114819195e00c7c476ca27f",
+    "internationalImport": {
+      "records": 1088,
+      "countries": 25,
+      "sourceErrors": 2,
+      "status": "imported",
+      "knownIssue": "India transport; unexpired snapshots retained"
+    },
+    "subsequentDomesticRefresh": {
+      "status": "succeeded",
+      "errors": 0
+    },
+    "readback": {
+      "totalRecords": 2095,
+      "buyers": 162,
+      "suppliers": 1933,
+      "countries": 26,
+      "priceSeries": 438,
+      "newsItems": 31,
+      "tradeObservations": 4418
+    },
+    "schedule": {
+      "id": "Automation_e62fb6f2aa9c8191b8cc4ce5afaa2411",
+      "enabled": true,
+      "cadence": "06:30 Europe/London daily",
+      "firstScheduledRunVerified": false
+    },
+    "browser": {
+      "liveCompanyViewLoaded": true,
+      "consoleErrors": 0
+    }
+  }
+}

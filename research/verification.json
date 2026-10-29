@@ -1,0 +1,12 @@
+{
+  "verifiedAt":"2026-10-29T11:26:08Z",
+  "site":"https://export-legacy-market-intelligence.surhay-nart.chatgpt.site",
+  "privacy":"owner-private",
+  "trade":{"catalogProducts":40,"catalogCountries":30,"catalogMarkets":1200,"marketsWithAnyData":1121,"observations":4418,"currentPeriodCountries":28,"missing2024And2025":["Viet Nam","United Arab Emirates"]},
+  "benchmarks":{"source":"World Bank Pink Sheet","series":32,"latestPeriod":"2026-09","cloudRefreshVerified":true},
+  "production":{"source":"USDA PSD","observations":5146,"products":19,"countryAndTerritoryLabels":165,"aggregateRows":75,"originalUnitsAndReleaseVintageValidated":true,"cloudRefreshVerified":true},
+  "catalogs":{"faostat":{"savedDatasets":69,"cloudRefresh":"HTTP 403; retained verified bootstrap catalog"},"faoFpma":{"seriesMetadata":90,"cloudRefreshVerified":true,"underlyingPriceObservationsImported":false}},
+  "automaticUpdates":{"id":"Automation_e62fb6f2aa9c8191b8cc4ce5afaa2411","enabled":true,"time":"06:30","timezone":"Europe/London","starts":"2026-10-30","tradeQueriesPerRun":6,"fullTradeCycleDays":10,"scheduledOccurrenceExecutedYet":false,"serviceWriterAndPersistedReadbackVerified":true},
+  "testing":["Strict trade response dimensions, duplicate and truncation rejection","Omitted observations retained; explicit zero preserved","Revision merge, cross-origin protection, persisted schedule state","4406 new trade values matched retained API responses","5146 production records matched original USDA archive with independent parsers","Browser trade filters, monthly benchmark rendering, production filters and mobile table behavior"],
+  "gaps":"Not a reproduction of Tridge's database. Proprietary price, news, company and shipment data are not connected; the full supplier list is not public. Additional sources in the registry may require API keys or redistribution permission."
+}

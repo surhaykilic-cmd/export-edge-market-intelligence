@@ -1,0 +1,8 @@
+.sites-runtime/
+node_modules/
+.env
+.env.*
+!.env.example
+brazil-coffee-sample.json
+research/*.zip
+research/*.xlsx

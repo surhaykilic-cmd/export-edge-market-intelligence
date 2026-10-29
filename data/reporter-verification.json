@@ -1,0 +1,182 @@
+[
+  {
+    "code": 76,
+    "label": "Brazil",
+    "officialLabel": "Brazil",
+    "iso": "BRA"
+  },
+  {
+    "code": 842,
+    "label": "United States",
+    "officialLabel": "USA",
+    "iso": "USA"
+  },
+  {
+    "code": 699,
+    "label": "India",
+    "officialLabel": "India",
+    "iso": "IND"
+  },
+  {
+    "code": 156,
+    "label": "China",
+    "officialLabel": "China",
+    "iso": "CHN"
+  },
+  {
+    "code": 360,
+    "label": "Indonesia",
+    "officialLabel": "Indonesia",
+    "iso": "IDN"
+  },
+  {
+    "code": 704,
+    "label": "Viet Nam",
+    "officialLabel": "Viet Nam",
+    "iso": "VNM"
+  },
+  {
+    "code": 764,
+    "label": "Thailand",
+    "officialLabel": "Thailand",
+    "iso": "THA"
+  },
+  {
+    "code": 458,
+    "label": "Malaysia",
+    "officialLabel": "Malaysia",
+    "iso": "MYS"
+  },
+  {
+    "code": 36,
+    "label": "Australia",
+    "officialLabel": "Australia",
+    "iso": "AUS"
+  },
+  {
+    "code": 554,
+    "label": "New Zealand",
+    "officialLabel": "New Zealand",
+    "iso": "NZL"
+  },
+  {
+    "code": 32,
+    "label": "Argentina",
+    "officialLabel": "Argentina",
+    "iso": "ARG"
+  },
+  {
+    "code": 124,
+    "label": "Canada",
+    "officialLabel": "Canada",
+    "iso": "CAN"
+  },
+  {
+    "code": 484,
+    "label": "Mexico",
+    "officialLabel": "Mexico",
+    "iso": "MEX"
+  },
+  {
+    "code": 604,
+    "label": "Peru",
+    "officialLabel": "Peru",
+    "iso": "PER"
+  },
+  {
+    "code": 152,
+    "label": "Chile",
+    "officialLabel": "Chile",
+    "iso": "CHL"
+  },
+  {
+    "code": 276,
+    "label": "Germany",
+    "officialLabel": "Germany",
+    "iso": "DEU"
+  },
+  {
+    "code": 528,
+    "label": "Netherlands",
+    "officialLabel": "Netherlands",
+    "iso": "NLD"
+  },
+  {
+    "code": 251,
+    "label": "France",
+    "officialLabel": "France",
+    "iso": "FRA"
+  },
+  {
+    "code": 724,
+    "label": "Spain",
+    "officialLabel": "Spain",
+    "iso": "ESP"
+  },
+  {
+    "code": 380,
+    "label": "Italy",
+    "officialLabel": "Italy",
+    "iso": "ITA"
+  },
+  {
+    "code": 826,
+    "label": "United Kingdom",
+    "officialLabel": "United Kingdom",
+    "iso": "GBR"
+  },
+  {
+    "code": 792,
+    "label": "Turkiye",
+    "officialLabel": "Türkiye",
+    "iso": "TUR"
+  },
+  {
+    "code": 710,
+    "label": "South Africa",
+    "officialLabel": "South Africa",
+    "iso": "ZAF"
+  },
+  {
+    "code": 818,
+    "label": "Egypt",
+    "officialLabel": "Egypt",
+    "iso": "EGY"
+  },
+  {
+    "code": 504,
+    "label": "Morocco",
+    "officialLabel": "Morocco",
+    "iso": "MAR"
+  },
+  {
+    "code": 404,
+    "label": "Kenya",
+    "officialLabel": "Kenya",
+    "iso": "KEN"
+  },
+  {
+    "code": 288,
+    "label": "Ghana",
+    "officialLabel": "Ghana",
+    "iso": "GHA"
+  },
+  {
+    "code": 384,
+    "label": "Cote d'Ivoire",
+    "officialLabel": "Côte d'Ivoire",
+    "iso": "CIV"
+  },
+  {
+    "code": 682,
+    "label": "Saudi Arabia",
+    "officialLabel": "Saudi Arabia",
+    "iso": "SAU"
+  },
+  {
+    "code": 784,
+    "label": "United Arab Emirates",
+    "officialLabel": "United Arab Emirates",
+    "iso": "ARE"
+  }
+]

@@ -1,0 +1,17 @@
+import http from 'node:http';
+import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
+import {createWorker} from '../worker/index.mjs';
+import {parsePinkSheet,parseUSDA} from '../worker/parsers.mjs';
+import {refreshFaostatCatalog,refreshFaostatPrices} from '../worker/faostat.mjs';
+import {refreshMarketFeeds} from '../worker/market-feeds.mjs';
+import {refreshCompanies} from '../worker/companies.mjs';
+import {companySeed,companyModule,companySourcePolicies,companySourceGroups} from './company-config.mjs';
+globalThis.parsePinkSheet=parsePinkSheet;globalThis.parseUSDA=parseUSDA;
+Object.assign(globalThis,{refreshFaostatCatalog,refreshFaostatPrices,refreshMarketFeeds,refreshCompanies});
+const read=p=>JSON.parse(readFileSync(p,'utf8').replace(/^\uFEFF/,''));
+const config={revision:'agriculture-data-v3',catalog:read('data/catalog.json'),seed:read('dist/data.json'),sources:read('research/sources.json'),benchmarks:read('data/benchmarks.json'),production:read('data/production.json'),fpma:read('data/fpma.json'),supply:read('data/supply.json'),marketFeeds:read('data/market-feeds.json'),companies:read('data/companies.json'),faostatPrices:read('data/faostat-prices.json'),assets:{}};
+config.revision='agriculture-data-v4';config.internationalCompanies=companySeed();config.companySourcePolicies=companySourcePolicies;config.companySourceGroups=companySourceGroups;config.companyDiscoveryModule=companyModule();
+const statePath='.sites-runtime/preview-state-v4.json';mkdirSync('.sites-runtime',{recursive:true});let state=existsSync(statePath)?readFileSync(statePath,'utf8'):null,etag=state?crypto.randomUUID():null;
+const BUCKET={async get(){return state?{etag,json:async()=>JSON.parse(state)}:null},async put(key,data,options){if(options?.onlyIf?.etagMatches&&options.onlyIf.etagMatches!==etag)return null;state=data;etag=crypto.randomUUID();writeFileSync(statePath,data);return {etag};}};
+const app=createWorker(config);
+http.createServer(async(req,res)=>{try{let content='';for await(const piece of req)content+=piece;for(const [name,type] of Object.entries({'index.html':'text/html; charset=utf-8','style.css':'text/css; charset=utf-8','app.js':'text/javascript; charset=utf-8'}))config.assets['/'+name]={body:readFileSync('dist/'+name,'utf8'),type};const request=new Request('http://127.0.0.1:4173'+req.url,{method:req.method,headers:req.headers,...(req.method!=='GET'&&req.method!=='HEAD'?{body:content}: {})});const response=await app.fetch(request,{BUCKET});res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));}catch(e){res.writeHead(500).end(e.message);}}).listen(4173,'127.0.0.1',()=>console.log('Local: http://127.0.0.1:4173'));

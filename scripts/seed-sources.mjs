@@ -1,0 +1,11 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {parsePinkSheet} from '../worker/parsers.mjs';
+import {createWorker} from '../worker/index.mjs';
+const parse=p=>JSON.parse(readFileSync(p,'utf8').replace(/^\uFEFF/,''));
+const config={catalog:parse('data/catalog.json'),seed:parse('dist/data.json'),sources:parse('research/sources.json'),assets:{}};
+const wb=readFileSync('research/worldbank-monthly.xlsx');config.benchmarks=await parsePinkSheet(wb.buffer.slice(wb.byteOffset,wb.byteOffset+wb.byteLength),'https://www.worldbank.org/en/research/commodity-markets');
+let stored=null,etag=null;const BUCKET={async get(){return stored?{etag,json:async()=>JSON.parse(stored)}:null},async put(key,data){stored=data;etag=crypto.randomUUID();return {etag};}};
+const worker=createWorker(config);const response=await worker.fetch(new Request('https://local.test/api/refresh',{method:'POST',body:JSON.stringify({scope:'catalogs'})}),{BUCKET});
+const output=await response.json();if(!response.ok)throw Error(JSON.stringify(output));const snapshot=JSON.parse(stored);
+mkdirSync('data',{recursive:true});for(const key of ['benchmarks','production','fpma'])writeFileSync(`data/${key}.json`,JSON.stringify(snapshot[key],null,2));
+console.log(JSON.stringify({benchmarkSeries:config.benchmarks.series.length,latestBenchmark:config.benchmarks.series[0]?.observations.at(-1),faoDatasets:snapshot.production.datasets.length,fpmaSeries:snapshot.fpma.series.length,errors:output.run.errors}));

@@ -1,0 +1,28 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {parseTedFoodBuyers,mergeProcurementBuyers,refreshProcurementCompanies,PROCUREMENT_SOURCE_POLICIES} from '../worker/companies-procurement.mjs';
+const checked='2026-10-29T14:00:00Z';
+const fixture={'publication-number':'749173-2026','notice-title':{eng:'Romania - Bread supply'},'buyer-name':{ron:['City Food Authority']},'buyer-country':['ROU'],'buyer-identifier':['PUBLIC-ORG-1'],'publication-date':'2026-10-29+01:00','classification-cpv':['15811100'],'notice-type':'can-standard',contactEmail:'private@example.com',phone:'0000000',contactName:'Private contact',address:'Private address'};
+const parse=n=>parseTedFoodBuyers({notices:[n]},checked);
+let rows=parse(fixture);assert.equal(rows.length,1);const record=rows[0];assert.equal(record.country,'Romania');assert.equal(record.registrationId,'PUBLIC-ORG-1');assert.equal(record.role,'buyer-discovery');assert.equal(record.noticeDate,'2026-10-29');assert.equal(record.sourceUrl,'https://ted.europa.eu/en/notice/-/detail/749173-2026');assert.match(record.evidence,/not proof of current buying intent/);assert(!JSON.stringify(record).includes('private@example'));assert(!Object.keys(record).some(k=>/phone|address|contact/i.test(k)));
+assert.equal(parse({...fixture,'buyer-country':['ROU','FRA']}).length,0,'Ambiguous buyer-country pairing must not be guessed');
+assert.equal(parse({...fixture,'buyer-country':['UNKNOWN']}).length,0);
+assert.equal(parse({...fixture,'buyer-country':['GBR']}).length,0,'This connector adds international rather than duplicating UK coverage');
+assert.equal(parse({...fixture,'buyer-name':{hrv:['Authority One','Authority Two']},'buyer-country':['HRV','HRV'],'buyer-identifier':['ID1','ID2']}).length,2);
+assert(!parse({...fixture,'buyer-name':{hrv:['Authority One','Authority Two']},'buyer-country':['HRV','HRV'],'buyer-identifier':['ID1','ID2']}).some(r=>r.registrationId),'No unverified parallel-array ID pairing');
+assert.equal(parse({...fixture,'classification-cpv':['15990000','15000000'],'notice-title':{eng:'Tobacco and cigarettes'}}).length,0);
+assert.equal(parse({...fixture,'classification-cpv':['03100000'],'notice-title':{eng:'Biodiversity credits and tree services'}}).length,0);
+assert.equal(parse({...fixture,'publication-number':'evil/../123'}).length,0);
+assert.equal(parse({...fixture,'publication-date':'2026-02-31'}).length,0);
+assert.equal(parse({...fixture,'buyer-name':{eng:['private@example.com']}}).length,0);
+const revised={...record,noticeDate:'2026-10-30',noticeId:'750000-2026'};assert.equal(mergeProcurementBuyers([record],[revised]).length,1);assert.equal(mergeProcurementBuyers([record],[revised])[0].noticeId,'750000-2026');
+const renamed={...revised,name:'Renamed Food Authority'};assert.equal(mergeProcurementBuyers([record],[renamed]).length,1,'Official organization identity and country reconcile a changed name');
+const legacy={...record};delete legacy.registrationId;assert.equal(mergeProcurementBuyers([legacy],[revised]).length,1,'Exact country and name reconcile earlier evidence without an official identifier');
+assert.equal(mergeProcurementBuyers([record],[{...record,registrationId:'OTHER-ORG'}]).length,2,'Conflicting official organization identifiers remain distinct');
+let calls=0;const success=await refreshProcurementCompanies({records:[]},{fetch:async()=>{calls++;return Response.json({notices:[fixture]});}});assert.equal(calls,2);assert.equal(success.records.length,1);assert.equal(success.statuses[0].status,'connected');
+const failed=await refreshProcurementCompanies({records:[record],retrievedAt:'2026-10-01'},{fetch:async()=>new Response('unavailable',{status:503})});assert.deepEqual(failed.records,[record]);assert.equal(failed.retrievedAt,'2026-10-01');
+calls=0;const partial=await refreshProcurementCompanies({records:[]},{fetch:async()=>++calls===1?Response.json({notices:[fixture]}):new Response('rate limited',{status:429,headers:{'retry-after':'120'}})});assert.equal(partial.records.length,1);assert.equal(partial.statuses[0].status,'partial');assert(partial.nextAllowedRequestAt);assert.equal(partial.errors[0].retryAfterSeconds,120);
+const cooldown=await refreshProcurementCompanies(partial,{fetch:async()=>{throw Error('Must not fetch during cooldown');}});assert.equal(cooldown.records.length,1);assert.equal(cooldown.errors[0].error,'Provider cooldown active');
+const oversized=await refreshProcurementCompanies({records:[record]},{fetch:async()=>new Response('{}',{headers:{'content-length':String(16*1024*1024)}})});assert.equal(oversized.records.length,1);assert.match(oversized.errors[0].error,/15 MiB/);
+const real=JSON.parse(readFileSync('data/companies-procurement.json','utf8'));assert.equal(new Set(real.records.map(r=>r.id)).size,real.records.length);for(const r of real.records){assert.equal(r.role,'buyer-discovery');assert(PROCUREMENT_SOURCE_POLICIES[0].countries.includes(r.country));assert.equal(new URL(r.sourceUrl).hostname,'ted.europa.eu');assert.match(r.evidence,/not proof of current buying intent/);assert(!Object.keys(r).some(k=>/phone|email|contact|address/i.test(k)));}
+console.log(JSON.stringify({passed:true,buyerRecords:real.records.length,countries:new Set(real.records.map(r=>r.country)).size,checked:['reported-country pairing','food CPV filtering','no tobacco-only/forestry false positives','no contacts or addresses','official evidence links','notice dates and status','organization dedup','retain-on-failure','partial success and retry cooldown']}));

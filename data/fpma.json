@@ -1,0 +1,727 @@
+{
+  "kind": "catalog",
+  "retrievedAt": "2026-10-29T11:11:53.418Z",
+  "series": [
+    {
+      "id": "00398845-2bc6-4f4d-98e9-0a655ef74ea7",
+      "name": "Groundnuts (US Runners 40/50, c.i.f. Rotterdam)",
+      "product": "Groundnuts (US Runners 40/50, c.i.f. Rotterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "00cd388c-302b-40ce-ac91-c1f5fed38b43",
+      "name": "Cassava Chips (Shipments to China, f.o.b. Koh Sichang)",
+      "product": "Cassava Chips (Shipments to China, f.o.b. Koh Sichang)",
+      "source": "The Thai Tapioca Trade Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "017a8265-14f8-4234-a2d3-0c6bc37115d9",
+      "name": "Diammonium phosphate, DAP (P fertilizer)",
+      "product": "Diammonium phosphate, DAP (P fertilizer)",
+      "source": "Bloomberg; Bloomberg L.P. - Green Markets (formerly Kennedy Information LLC) via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "050a093f-268a-415b-8e1a-a87033d1908f",
+      "name": "Dairy: Skim Milk Powder (European & Oceania average indicative export prices, f.o.b)",
+      "product": "Dairy: Skim Milk Powder (European & Oceania average indicative export prices, f.o.b)",
+      "source": "Dairy Market News (USDA)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "0ae6a4b8-d42e-44a9-8d21-e1c1f69445db",
+      "name": "Fish oil (Any origin, c.i.f. North West Europe)",
+      "product": "Fish oil (Any origin, c.i.f. North West Europe)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "0e531293-c6b4-40da-95d0-c487dad66637",
+      "name": "Crude oil (Brent)",
+      "product": "Crude oil (Brent)",
+      "source": "Bloomberg; Energy Intelligence Group (EIG); Organization of Petroleum Exporting Countries (OPEC); World Bank via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "Barrel"
+    },
+    {
+      "id": "125add71-051b-4102-a018-72f59d4c3f1e",
+      "name": "Wheat (CWRS, 13.5%)",
+      "product": "Wheat (CWRS, 13.5%)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "1351def4-604a-4b21-815f-1e24792a5942",
+      "name": "Rice (Super Kernel White Basmati 2%)",
+      "product": "Rice (Super Kernel White Basmati 2%)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "16bc8be4-6b15-4551-a9d8-7084ddee3a1c",
+      "name": "Sorghum",
+      "product": "Sorghum",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "1ac044f5-25d7-4c00-b410-f1e274e4cb3b",
+      "name": "Palmkernel meal (Expeller pellets, 21/23%, c.i.f. Rotterdam)",
+      "product": "Palmkernel meal (Expeller pellets, 21/23%, c.i.f. Rotterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "1d723a09-4225-49ee-b629-2f23a7ce7fc4",
+      "name": "Barley (feed)",
+      "product": "Barley (feed)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "223de48c-f284-486a-8bb6-fdbdaf81a4ba",
+      "name": "Meat: Pig meat (Meat of swine, fresh, chilled or frozen)",
+      "product": "Meat: Pig meat (Meat of swine, fresh, chilled or frozen)",
+      "source": "Comex Stat",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "23397429-69b2-472f-bfed-19d0bd943937",
+      "name": "Dairy: Cheddar Cheese (European & Oceania average indicative export prices, f.o.b)",
+      "product": "Dairy: Cheddar Cheese (European & Oceania average indicative export prices, f.o.b)",
+      "source": "Dairy Market News (USDA)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "23bfee7e-6a78-48aa-bca2-6445cf05ce93",
+      "name": "Wheat (milling, d.a.p. Saryagash station)",
+      "product": "Wheat (milling, d.a.p. Saryagash station)",
+      "source": "APK-Inform Agency",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "2984e2ac-ce7d-4025-aa11-42a3f8a8c81c",
+      "name": "Rice (Parboiled 100%)",
+      "product": "Rice (Parboiled 100%)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "2f3e751c-c3bd-4270-8bbc-f50f08ed0994",
+      "name": "Tea",
+      "product": "Tea",
+      "source": "ATB -  Africa Tea Brokers Limited Tea Market Report, East African Tea Export Auctions, Mombasa",
+      "currency": "USD",
+      "unit": "Kg"
+    },
+    {
+      "id": "2f8fe384-e832-4f97-b6cd-edee67eb51fd",
+      "name": "Sorghum (US No. 2, Yellow)",
+      "product": "Sorghum (US No. 2, Yellow)",
+      "source": "USDA",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "35c70575-f1e9-4859-adec-31c39548447f",
+      "name": "Sunflowerseed (EU, c.i.f. Amsterdam)",
+      "product": "Sunflowerseed (EU, c.i.f. Amsterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "3af2c475-d825-4ddd-a80c-4885ab27b997",
+      "name": "Bananas (Main Brands Central America, Delivered at Terminal)",
+      "product": "Bananas (Main Brands Central America, Delivered at Terminal)",
+      "source": "NOTIFAX (CORBANA). From June 2017 SOPISCO",
+      "currency": "USD",
+      "unit": "Box (18.14 kg)"
+    },
+    {
+      "id": "3c80e914-37a8-40ee-bf48-787077ca1179",
+      "name": "Maize (US No. 2, White)",
+      "product": "Maize (US No. 2, White)",
+      "source": "USDA",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "3fefffb8-a60a-43f6-9f70-b71479f44a04",
+      "name": "Maize (Up River)",
+      "product": "Maize (Up River)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "4424dbaf-5814-4603-8010-a99e4384eb84",
+      "name": "Soybean (US, c.i.f. Rotterdam)",
+      "product": "Soybean (US, c.i.f. Rotterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "469e11ec-f6dc-4e4d-92bc-88e5460d4244",
+      "name": "Soybean meal (44/45%, Hamburg, f.o.b. ex-mill)",
+      "product": "Soybean meal (44/45%, Hamburg, f.o.b. ex-mill)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "48593df4-3ed7-4f22-949d-1e7fa80db090",
+      "name": "Wheat (milling, 12.5%)",
+      "product": "Wheat (milling, 12.5%)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "49761070-9158-4170-bc94-6d990e1451df",
+      "name": "Rice (5% broken, long grain white, f.o.b., f.c.l.)",
+      "product": "Rice (5% broken, long grain white, f.o.b., f.c.l.)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "4c6792ba-f316-4a40-a6ca-8028c6deb22f",
+      "name": "Soybean oil (Dutch, f.o.b. ex-mill)",
+      "product": "Soybean oil (Dutch, f.o.b. ex-mill)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "5a272e65-e437-41c2-bcb0-f229dc14f47b",
+      "name": "Jute BWD (f.o.b. Mongla, at sight)/from 2006 Jute BTD (f.o.b Bangladesh Port)",
+      "product": "Jute BWD (f.o.b. Mongla, at sight)/from 2006 Jute BTD (f.o.b Bangladesh Port)",
+      "source": "Bangladesh Jute Mills Corporation/The Public Ledger/Wilhelm G. Clasen (WGC)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "5db69fc0-1005-440b-9e6c-065d1acec33e",
+      "name": "Maize (US No. 2, Yellow)",
+      "product": "Maize (US No. 2, Yellow)",
+      "source": "USDA",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "5ea85008-9850-4b22-b708-f6855c1efb7e",
+      "name": "Cassava Flour/Starch (Super High Grade, f.o.b. Bangkok)",
+      "product": "Cassava Flour/Starch (Super High Grade, f.o.b. Bangkok)",
+      "source": "The Thai Tapioca Trade Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "61c82dd3-ecda-4e41-b315-f7aaa9dbc1da",
+      "name": "Australia, Meat: Ovine (National Heavy Lamb Indicator Value)",
+      "product": "Australia, Meat: Ovine (National Heavy Lamb Indicator Value)",
+      "source": "Meat & Livestock, Australia",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "62dc04d8-35cc-4a5b-b58f-4f50a998681b",
+      "name": "Wheat (US No. 2, Soft Red Winter)",
+      "product": "Wheat (US No. 2, Soft Red Winter)",
+      "source": "USDA",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "65803ce2-90d5-4334-8ce7-675c8fd49fa0",
+      "name": "Wheat (feed, <11%)",
+      "product": "Wheat (feed, <11%)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "70d0099b-3cda-4997-9bf1-dfc86ed1927c",
+      "name": "Dairy: Whole Milk Powder (European & Oceania average indicative export prices, f.o.b)",
+      "product": "Dairy: Whole Milk Powder (European & Oceania average indicative export prices, f.o.b)",
+      "source": "Dairy Market News (USDA)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "729f6952-212e-4896-ad2e-c8b724ee40a0",
+      "name": "Sisal (Brazil Bahia, No. 3/ from 2013 Bahia Type 3 DB, f.o.b. Salvador)",
+      "product": "Sisal (Brazil Bahia, No. 3/ from 2013 Bahia Type 3 DB, f.o.b. Salvador)",
+      "source": "Wigglesworth and Co. Limited/The Public Ledger/ Sindifibras",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "73fe2b26-7af9-4a0b-a833-0e14721ae57b",
+      "name": "Triple Superphosphate, TSP (P fertilizer)",
+      "product": "Triple Superphosphate, TSP (P fertilizer)",
+      "source": "Bloomberg; Bloomberg L.P. - Green Markets (formerly Kennedy Information LLC) via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "79f47b5c-429d-4bba-9eaa-d9975c063033",
+      "name": "Sisal (East African, No. 3L - Tanzania/Kenya c.i.f. - from 2007 f.o.b.)",
+      "product": "Sisal (East African, No. 3L - Tanzania/Kenya c.i.f. - from 2007 f.o.b.)",
+      "source": "Wigglesworth and Co. Limited/The Public Ledger/Tanzania Sisal Board",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "7a2d1b6f-58e7-4998-b697-100a9e281e9a",
+      "name": "Rice (Glutinous 10%)",
+      "product": "Rice (Glutinous 10%)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "7a599acb-be8e-4ae2-8bd3-c1e7370c6ced",
+      "name": "Rice (25% broken)",
+      "product": "Rice (25% broken)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "823e0bbf-f7f8-4c91-8b5e-050b8efec989",
+      "name": "Coconut oil (Philippines, c.i.f. Rotterdam)",
+      "product": "Coconut oil (Philippines, c.i.f. Rotterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "87ff3081-3518-4e47-b087-797c485b2d4f",
+      "name": "Tea",
+      "product": "Tea",
+      "source": "ATB -  Africa Tea Brokers Limited Tea Market Report, East African Tea Export Auctions, Mombasa",
+      "currency": "USD",
+      "unit": "Kg"
+    },
+    {
+      "id": "897688ad-9181-4c54-a7fd-abd48684797a",
+      "name": "Meat: Bovine (Fresh, chilled or frozen)",
+      "product": "Meat: Bovine (Fresh, chilled or frozen)",
+      "source": "Comex Stat",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "8a111fb0-79f8-4237-bde5-504373d20dfc",
+      "name": "Wheat (US No. 2, Hard Red Winter)",
+      "product": "Wheat (US No. 2, Hard Red Winter)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "922e37a1-6627-4a9f-8dd9-b2e62952202e",
+      "name": "Meat: Pig meat (Fresh, chilled or frozen)",
+      "product": "Meat: Pig meat (Fresh, chilled or frozen)",
+      "source": "USDA: US trade exports",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "92abeed2-d741-4cfa-9bd3-cd630456e051",
+      "name": "Rice (Fragrant 100%)",
+      "product": "Rice (Fragrant 100%)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "9524c0df-0c69-45ba-a321-0bd2275b1ca5",
+      "name": "Rice (25% broken)",
+      "product": "Rice (25% broken)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "957b8cca-b379-482d-b833-acc778c1012c",
+      "name": "Meat: Poultry (Chicken cuts and edible offal, fresh, chilled or frozen)",
+      "product": "Meat: Poultry (Chicken cuts and edible offal, fresh, chilled or frozen)",
+      "source": "USDA: US trade exports",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "95d29249-97cb-4f31-b0c3-50615da5813a",
+      "name": "New Zealand, Meat: Ovine (Lamb Average Export Value)",
+      "product": "New Zealand, Meat: Ovine (Lamb Average Export Value)",
+      "source": "AgriHQ",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "97e58206-6e97-409b-b79d-6b57e642a615",
+      "name": "Wheat (grade 1, Rouen)",
+      "product": "Wheat (grade 1, Rouen)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "992f1c4d-24ee-461c-aa57-bae353a2b1d5",
+      "name": "Barley (feed)",
+      "product": "Barley (feed)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "9af3d755-75c1-4c9f-9593-3667f1b5bf8c",
+      "name": "Wheat (offer, f.o.b., deep-sea ports)",
+      "product": "Wheat (offer, f.o.b., deep-sea ports)",
+      "source": "APK-Inform Agency",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "9e19c696-401a-4626-9e7f-6e945e899aa2",
+      "name": "Bananas (Main brands Central and South America, Free on Truck)",
+      "product": "Bananas (Main brands Central and South America, Free on Truck)",
+      "source": "World Bank Commodity Price Data (The Pink Sheet)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "a2d52862-666a-45d6-8887-2f6a56205000",
+      "name": "Dairy: Butter (European & Oceania average indicative export prices, f.o.b)",
+      "product": "Dairy: Butter (European & Oceania average indicative export prices, f.o.b)",
+      "source": "Dairy Market News (USDA)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "a53db93f-7c57-4f35-b40d-fabb275f827d",
+      "name": "Rapeseed meal (34%, Hamburg, f.o.b. ex-mill)",
+      "product": "Rapeseed meal (34%, Hamburg, f.o.b. ex-mill)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "a8138ffa-bda2-4503-9d83-dbc4d3b998ad",
+      "name": "Sunflower oil (f.o.b. North West European Ports)",
+      "product": "Sunflower oil (f.o.b. North West European Ports)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "a842f91c-53f9-4952-8afe-a0a684d743d0",
+      "name": "Wheat (milling, offer, f.o.b.)",
+      "product": "Wheat (milling, offer, f.o.b.)",
+      "source": "APK-Inform Agency",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "aa0ee75e-441a-4a04-b762-24b2c2dccaaf",
+      "name": "Barley (feed)",
+      "product": "Barley (feed)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "ab4ef0f6-aa61-4fd2-ad26-29f6b82a8311",
+      "name": "Meat: Poultry (Meat and edible offal. Fresh, chilled or frozen)",
+      "product": "Meat: Poultry (Meat and edible offal. Fresh, chilled or frozen)",
+      "source": "Comex Stat",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "ab9e3b3e-b1bc-4884-8bab-7f9b47074f1d",
+      "name": "Phosphate rock (P fertilizer)",
+      "product": "Phosphate rock (P fertilizer)",
+      "source": "Bloomberg; Bloomberg L.P. - Green Markets (formerly Kennedy Information LLC) via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "b0f34b72-9bfe-4b97-a4a8-21241c2f995a",
+      "name": "Bananas (Other Brands Central America, Delivered at Terminal)",
+      "product": "Bananas (Other Brands Central America, Delivered at Terminal)",
+      "source": "NOTIFAX (CORBANA). From June 2017 SOPISCO",
+      "currency": "USD",
+      "unit": "Box (18.14 kg)"
+    },
+    {
+      "id": "bd2b475e-9344-4e98-9457-443dcce5b223",
+      "name": "Tea",
+      "product": "Tea",
+      "source": "FAO Intergovernmental Group on Tea",
+      "currency": "USD",
+      "unit": "Kg"
+    },
+    {
+      "id": "c030667e-131d-421a-ba94-ab6cf8ffe2ee",
+      "name": "Wheat (ASW)",
+      "product": "Wheat (ASW)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "c28de271-758d-4121-91cd-4b7a3d07789a",
+      "name": "Bananas (Main Brands Central America, Delivered at Terminal)",
+      "product": "Bananas (Main Brands Central America, Delivered at Terminal)",
+      "source": "NOTIFAX (CORBANA). From June 2017 SOPISCO",
+      "currency": "USD",
+      "unit": "Box (18.14 kg)"
+    },
+    {
+      "id": "c5c97ec1-d02f-4daf-9673-196797189f07",
+      "name": "Sisal (East African, UG - Tanzania/Kenya c.i.f. - from 2007 f.o.b.)",
+      "product": "Sisal (East African, UG - Tanzania/Kenya c.i.f. - from 2007 f.o.b.)",
+      "source": "Wigglesworth and Co. Limited/The Public Ledger/Tanzania Sisal Board",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "c7208b39-2617-426c-b248-c975cb951254",
+      "name": "Rice (Thai 100% B white)",
+      "product": "Rice (Thai 100% B white)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "d01dd4c4-6815-4af9-aabf-3bf1c6b02bb3",
+      "name": "Rice (US No. 2, 4% Long Grain)",
+      "product": "Rice (US No. 2, 4% Long Grain)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "d1e18554-1098-4822-852d-1897ef3d1d0a",
+      "name": "Maize (feed)",
+      "product": "Maize (feed)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "d471f6ae-21d2-4c05-a910-55f042fdebf1",
+      "name": "Maize (feed)",
+      "product": "Maize (feed)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "d5206284-45af-4c78-8342-d3550114fa3f",
+      "name": "Rapeseed (Europe, 00, c.i.f. Hamburg)",
+      "product": "Rapeseed (Europe, 00, c.i.f. Hamburg)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "d7130a81-3eea-4d1c-a57d-77bf02ff8dd2",
+      "name": "Rice (Thai A1 Super)",
+      "product": "Rice (Thai A1 Super)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "d8df18a9-39c3-4b13-b940-0b87795400dc",
+      "name": "Bananas",
+      "product": "Bananas",
+      "source": "Réseau des Nouvelles des Marchés",
+      "currency": "EUR",
+      "unit": "tonne"
+    },
+    {
+      "id": "de255cf0-e833-44c6-87c8-f303f36f78b5",
+      "name": "Crude oil (WTI)",
+      "product": "Crude oil (WTI)",
+      "source": "Bloomberg; Energy Intelligence Group (EIG); Organization of Petroleum Exporting Countries (OPEC); World Bank via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "Barrel"
+    },
+    {
+      "id": "de40794a-63f2-4c87-92d9-c32d835d6d51",
+      "name": "Bananas",
+      "product": "Bananas",
+      "source": "World Bank Commodity Price Data (The Pink Sheet)",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "e1975f90-4297-4595-a75a-f4807480b444",
+      "name": "Bananas (Other Brands Central America, Delivered at Terminal)",
+      "product": "Bananas (Other Brands Central America, Delivered at Terminal)",
+      "source": "NOTIFAX (CORBANA). From June 2017 SOPISCO",
+      "currency": "USD",
+      "unit": "Box (18.14 kg)"
+    },
+    {
+      "id": "e23b83a7-7cf7-40b0-87f7-6c03a2d3b2bc",
+      "name": "Wheat (12%, Up River)",
+      "product": "Wheat (12%, Up River)",
+      "source": "International Grains Council",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "e33cc2e8-cbea-44a5-a9ed-4fd4c0cb8523",
+      "name": "Australia, Meat: Bovine (90CL Boneless Beef, FOB export prices to the United States of America)",
+      "product": "Australia, Meat: Bovine (90CL Boneless Beef, FOB export prices to the United States of America)",
+      "source": "Meat & Livestock, Australia",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "e49cb11d-3366-4d90-863b-f1a65fe78f09",
+      "name": "Maize (offer, f.o.b.)",
+      "product": "Maize (offer, f.o.b.)",
+      "source": "APK-Inform Agency",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "e8861d50-8c9a-4da7-badc-ef1699139ea4",
+      "name": "Soybean (US, No. 1 yellow, f.o.b.)",
+      "product": "Soybean (US, No. 1 yellow, f.o.b.)",
+      "source": "USDA",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "eb6de409-12ab-4d90-a427-ecaec4c13edb",
+      "name": "Rice (5% broken)",
+      "product": "Rice (5% broken)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "ec0bfeb2-6cf3-48a9-8725-3a8860aeae1f",
+      "name": "Rice (25% broken)",
+      "product": "Rice (25% broken)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "ec5d9f1a-40a7-43f0-b745-761aa96a08ee",
+      "name": "Rice (5% broken)",
+      "product": "Rice (5% broken)",
+      "source": "FAO rice price update",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "ed8f8a86-74c6-4e46-b0c0-8a822d146c1a",
+      "name": "Potassium chloride, muriate of potash (K fertilizer)",
+      "product": "Potassium chloride, muriate of potash (K fertilizer)",
+      "source": "Bloomberg; Bloomberg L.P. - Green Markets (formerly Kennedy Information LLC) via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "f1366fe7-6b81-42ae-8f0d-a8c841ce51ad",
+      "name": "Rape oil (Dutch, f.o.b. ex-mill)",
+      "product": "Rape oil (Dutch, f.o.b. ex-mill)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "f13870c3-2ab1-42b6-8127-9d940adba19b",
+      "name": "Urea (N fertilizer)",
+      "product": "Urea (N fertilizer)",
+      "source": "Bloomberg; Bloomberg L.P. - Green Markets (formerly Kennedy Information LLC) via the World Bank Pink Sheet",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "f36e9b0a-3b82-4693-a4be-9ffd872cc225",
+      "name": "Fish Meal (64/65% Bremen f.c.a.)",
+      "product": "Fish Meal (64/65% Bremen f.c.a.)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "f3bb4b14-9b09-4151-b22f-e2264018dd89",
+      "name": "Meat: Pig meat (Market price for pig carcase grade E)",
+      "product": "Meat: Pig meat (Market price for pig carcase grade E)",
+      "source": "European Commision",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "f9d1dacc-2468-4287-acc2-6bd8a55eb65f",
+      "name": "Sugar",
+      "product": "Sugar",
+      "source": "International Sugar Organization",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "fb4e1fc4-965d-4bc9-8092-6ccfb4923cbc",
+      "name": "Palm oil (Crude, c.i.f. Rotterdam)",
+      "product": "Palm oil (Crude, c.i.f. Rotterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "fc235e48-6b0a-40ab-8424-b18fea859a4b",
+      "name": "Meat: Bovine (Fresh, chilled or frozen)",
+      "product": "Meat: Bovine (Fresh, chilled or frozen)",
+      "source": "USDA: US trade exports",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "fc7a55f2-1cf5-4079-bd7a-80eacf7958b8",
+      "name": "Rice (25% broken)",
+      "product": "Rice (25% broken)",
+      "source": "Thai Rice Exporters Association",
+      "currency": "USD",
+      "unit": "tonne"
+    },
+    {
+      "id": "fff82478-a9b7-48a7-95eb-339a870bd58b",
+      "name": "Groundnut oil (Any origin, c.i.f. Rotterdam)",
+      "product": "Groundnut oil (Any origin, c.i.f. Rotterdam)",
+      "source": "Oil World",
+      "currency": "USD",
+      "unit": "tonne"
+    }
+  ],
+  "note": "International price-series discovery metadata only. Underlying observations may have third-party rights."
+}
