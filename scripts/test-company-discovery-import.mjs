@@ -1,3 +1,4 @@
+import {ownerRequest,ownerEnv} from './auth-fixture.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createWorker} from '../worker/index.mjs';
@@ -77,9 +78,9 @@ let persisted={dataset:trade,benchmarks:{series:[{id:'wb-preserved'}]},faostatPr
 let etag='v0',writes=0,putCalls=0,rejectConcurrency=false;
 const BUCKET={async get(key){assert.equal(key,'agriculture/current.json');return {etag,json:async()=>structuredClone(persisted)};},async put(key,body,options){putCalls++;assert.equal(key,'agriculture/current.json');assert.equal(options.onlyIf.etagMatches,etag);if(rejectConcurrency)return null;persisted=JSON.parse(body);etag='v'+(++writes);return {etag};}};
 const config={seed:trade,catalog:read('data/catalog.json'),assets:{},sources:{sources:[]},companies:domestic,internationalCompanies:official,companySourcePolicies:policies,companySourceGroups,revision:'company-discovery-import-test'};
-const worker=createWorker(config),env={BUCKET};
-const request=(body,extra={})=>new Request('https://private.example/api/company-discovery-import',{method:'POST',headers:{'Content-Type':'application/json',...extra},body:typeof body==='string'?body:JSON.stringify(body)});
-const get=async path=>{const response=await worker.fetch(new Request('https://private.example'+path),env);assert.equal(response.status,200);return response.json();};
+const worker=createWorker(config),env=ownerEnv({BUCKET});
+const request=(body,extra={})=>ownerRequest('https://private.example/api/company-discovery-import',{method:'POST',headers:{'Content-Type':'application/json',...extra},body:typeof body==='string'?body:JSON.stringify(body)});
+const get=async path=>{const response=await worker.fetch(ownerRequest('https://private.example'+path),env);assert.equal(response.status,200);return response.json();};
 const initial=structuredClone(persisted);
 let shown=await get('/api/companies');
 assert(shown.records.some(r=>r.id===domesticRecord.id));assert(shown.records.some(r=>r.id===extraIndia.id));
@@ -132,7 +133,7 @@ const beforeScheduled=structuredClone(persisted.internationalCompanies),beforeTr
 let domesticCalls=0;
 try{
  globalThis.refreshCompanies=async previous=>{domesticCalls++;assert.deepEqual(previous,initial.companies,'Scheduled UK connector must receive only domestic state');return {records:[{...domesticRecord,id:'fsa-ew-scheduled-fixture'}],statuses:[{id:'uk-fsa-approved',status:'connected',detail:'Fixture UK refresh',count:1}],errors:[],retrievedAt:new Date().toISOString()};};
- response=await worker.fetch(new Request('https://private.example/api/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scope:'companies'})}),env);
+ response=await worker.fetch(ownerRequest('https://private.example/api/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scope:'companies'})}),env);
  assert.equal(response.status,200);const refreshed=await response.json();assert.equal(domesticCalls,1);assert.equal(refreshed.run.status,'succeeded');
  assert.deepEqual(persisted.internationalCompanies,beforeScheduled,'A scheduled UK refresh must not discard international data or source health');
  assert.deepEqual(persisted.dataset.markets,beforeTrade);assert.deepEqual(persisted.marketFeeds,beforePrices);assert.deepEqual(persisted.automaticUpdates,initial.automaticUpdates);

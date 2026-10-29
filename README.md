@@ -4,7 +4,7 @@ GitHub source: https://github.com/surhaykilic-cmd/export-edge-market-intelligenc
 
 This repository contains the **market intelligence application**: trade data, prices, production, news, and buyer/supplier discovery. The separate **Academy marketing website and waitlist** lives at https://exportedge.academy/ and has its own repository: https://github.com/surhaykilic-cmd/export-edge-academy. Keep each project's source, hosting identity, storage and deployment independent.
 
-Private research platform inspired by the functions of Tridge's market-curations reference. It combines official trade observations, annual national producer prices, weekly/monthly market benchmarks, USDA production estimates, official news links and evidence-linked company discovery. Tridge's proprietary database and reports have not been copied. Broader commodity coverage remains a later phase.
+Shareable research platform inspired by the functions of Tridge's market-curations reference. It combines official trade observations, annual national producer prices, weekly/monthly market benchmarks, USDA production estimates, official news links and evidence-linked company discovery. Tridge's proprietary database and reports have not been copied. Broader commodity coverage remains a later phase.
 
 Site: https://export-legacy-market-intelligence.surhay-nart.chatgpt.site
 
@@ -48,6 +48,12 @@ The version-2 bootstrap contains the following. Counts describe the imported rel
 
 The interface provides product/country/year filters, imports and exports, trade comparisons, source-linked briefs, benchmark and supply views, CSV export, source status and a browser-local watchlist. Product headings may include several commercial products; read the full definition before comparing markets.
 
+## Public research, owner-only maintenance
+
+Anyone with the shared Site URL can read the research pages and public data endpoints. Every data import, refresh, schedule change and mutating MCP call requires verified owner access. The four maintenance module/state downloads are protected too. No visitor sign-in, personal-data storage or account creation is added. Watchlists remain local to each visitor's browser.
+
+The runtime secrets UPDATE_OWNER_EMAIL and UPDATE_SERVICE_TOKEN_SHA256 contain the owner policy and SHA256 verifier of the existing Site service bearer. No bearer is committed or sent to upstream data publishers. The scheduled task obtains the existing credential with Sites get_site and follows /api/update-instructions; do not generate or rotate service tokens routinely. If the credential is explicitly rotated, update the verifier using the helper's hidden-stdin digestOnly mode and the Sites runtime-environment tool, then deploy to apply it. Missing configuration fails closed for maintenance. GitHub repositories and the Academy website are independent of this sharing policy.
+
 ## Hosted data and updates
 
 The site is a Cloudflare Worker with persistent R2 storage bound as `BUCKET`. `.openai/hosting.json` retains the existing Site identity, R2 binding and MCP capability. The Worker embeds a verified bootstrap; later successful imports persist in R2 without republishing the application.
@@ -56,7 +62,7 @@ The site is a Cloudflare Worker with persistent R2 storage bound as `BUCKET`. `.
 
 The intended schedule is **06:30 Europe/London daily**. Treat it as active only after the Sites scheduling API has returned a saved, enabled schedule and the site's persisted schedule state confirms it. Source readiness, a successful manual refresh and schedule creation are distinct verification steps. Check `/api/status` for the recorded schedule state, last successful source runs, errors and coverage. Do not infer unattended execution merely from a saved schedule.
 
-The owner-private Site gate protects the update writer. Fresh hosted service access or the supported Site MCP connection allows a cloud task to update while the browser is closed. `/api/update-instructions` supplies the current revision's update instructions. `scripts/site-request.mjs` accepts a short-lived service credential only through stdin and sends it only to this Site. Never put credentials in files, source control, shell arguments, logs or the schedule prompt.
+Research views support public sharing. Update writers and maintenance downloads require the verified Site owner identity or the existing Site service credential checked against a server-only SHA256 verifier. Fresh hosted service access or the supported Site MCP connection allows a cloud task to update while the browser is closed. `/api/update-instructions` supplies the current revision's update instructions. `scripts/site-request.mjs` accepts the existing service credential only through hidden stdin and sends it only to this Site, in both the platform OAI-Sites-Authorization header and X-Export-Edge-Update-Token maintenance header. Never put credentials in files, source control, shell arguments, logs or the schedule prompt.
 
 The refresh pipeline checks source dimensions, rejects duplicate and potentially truncated trade responses, replaces matching observations when revisions arrive, and preserves previous good values on source failure or empty responses. Explicit source zeros remain zeros; missing observations are not converted to zero. USDA's 202 MB uncompressed CSV is parsed as a stream rather than materialized in Worker memory.
 

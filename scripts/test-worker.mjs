@@ -1,3 +1,4 @@
+import {ownerRequest,ownerEnv} from './auth-fixture.mjs';
 import assert from 'node:assert/strict';
 import {createWorker,mergeTrade} from '../worker/index.mjs';
 const country={code:76,country:'Brazil'},products=[{hs:'0901',product:'Coffee'}],original={markets:[{code:76,hs:'0901',records:[{year:2024,flow:'X',value:100}],sourceUrls:[]}]};
@@ -31,8 +32,8 @@ for(const [name,patch] of [
 }
 let stored=null,etag=null;const BUCKET={async get(){return stored?{etag,json:async()=>JSON.parse(stored)}:null},async put(key,body,options){if(options.onlyIf.etagMatches&&options.onlyIf.etagMatches!==etag)return null;stored=body;etag='v1';return{etag};}};
 const config={seed:original,catalog:{countries:[country],products},assets:{},sources:{sources:[]},revision:'test'};const worker=createWorker(config);
-let r=await worker.fetch(new Request('https://private.test/api/schedule-confirmed',{method:'POST',headers:{Origin:'https://malicious.test'},body:'{}'}),{BUCKET});assert.equal(r.status,403,'Cross-origin writes must fail');
-r=await worker.fetch(new Request('https://private.test/api/schedule-confirmed',{method:'POST',body:JSON.stringify({id:'saved-schedule',enabled:true})}),{BUCKET});assert.equal(r.status,200);
-r=await worker.fetch(new Request('https://private.test/api/status'),{BUCKET});assert.equal((await r.json()).automaticUpdates.enabled,true,'Schedule state must survive separate requests');
-r=await worker.fetch(new Request('https://private.test/api/refresh',{method:'POST',body:'{"scope":"unknown"}'}),{BUCKET});assert.equal(r.status,400);
+let r=await worker.fetch(ownerRequest('https://private.test/api/schedule-confirmed',{method:'POST',headers:{Origin:'https://malicious.test'},body:'{}'}),ownerEnv({BUCKET}));assert.equal(r.status,403,'Cross-origin writes must fail');
+r=await worker.fetch(ownerRequest('https://private.test/api/schedule-confirmed',{method:'POST',body:JSON.stringify({id:'saved-schedule',enabled:true})}),ownerEnv({BUCKET}));assert.equal(r.status,200);
+r=await worker.fetch(ownerRequest('https://private.test/api/status'),ownerEnv({BUCKET}));assert.equal((await r.json()).automaticUpdates.enabled,true,'Schedule state must survive separate requests');
+r=await worker.fetch(ownerRequest('https://private.test/api/refresh',{method:'POST',body:'{"scope":"unknown"}'}),ownerEnv({BUCKET}));assert.equal(r.status,400);
 console.log('Passed: retain-on-empty, strict source dimensions, duplicate/truncation rejection without partial mutation, revision merge, omitted-flow retention, explicit zero values, cross-origin protection, persisted schedule readback, scope validation.');

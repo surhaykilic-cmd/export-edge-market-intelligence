@@ -1,3 +1,4 @@
+import {ownerRequest,ownerEnv} from './auth-fixture.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createWorker,validateImportedMarketPrices} from '../worker/index.mjs';
@@ -42,16 +43,16 @@ let persisted={dataset:trade,benchmarks:{series:[{id:'wb-original',name:'Origina
 const initial=structuredClone(persisted);let etag='v0',writes=0;
 const BUCKET={async get(){return {etag,json:async()=>structuredClone(persisted)};},async put(key,body,options){assert.equal(options.onlyIf.etagMatches,etag);persisted=JSON.parse(body);etag='v'+(++writes);return {etag};}};
 const app=createWorker({seed:trade,catalog:read('data/catalog.json'),assets:{},sources:{sources:[]},revision:'price-import-test'});
-const request=body=>new Request('https://private.example/api/market-prices-import',{method:'POST',headers:{'Content-Type':'application/json'},body:typeof body==='string'?body:JSON.stringify(body)});
-for(const [name,mutate] of invalidCases){const before=structuredClone(persisted),beforeWrites=writes;const response=await app.fetch(request(changed(mutate)),{BUCKET});assert(response.status>=400,`${name} must fail through the HTTP endpoint`);assert.deepEqual(persisted,before,`${name} must not alter saved data`);assert.equal(writes,beforeWrites,`${name} must not call the writer`);}
-let response=await app.fetch(request('{invalid JSON'),{BUCKET});assert(response.status>=400);assert.equal(writes,0);
-response=await app.fetch(request(' '.repeat(1500001)),{BUCKET});assert.equal(response.status,413);assert.equal(writes,0);
-response=await app.fetch(request(zero),{BUCKET});assert.equal(response.status,200);const result=await response.json();assert.equal(result.series,33);assert.equal(result.totalSeries,34,'An older series omitted by the new import must remain available');
+const request=body=>ownerRequest('https://private.example/api/market-prices-import',{method:'POST',headers:{'Content-Type':'application/json'},body:typeof body==='string'?body:JSON.stringify(body)});
+for(const [name,mutate] of invalidCases){const before=structuredClone(persisted),beforeWrites=writes;const response=await app.fetch(request(changed(mutate)),ownerEnv({BUCKET}));assert(response.status>=400,`${name} must fail through the HTTP endpoint`);assert.deepEqual(persisted,before,`${name} must not alter saved data`);assert.equal(writes,beforeWrites,`${name} must not call the writer`);}
+let response=await app.fetch(request('{invalid JSON'),ownerEnv({BUCKET}));assert(response.status>=400);assert.equal(writes,0);
+response=await app.fetch(request(' '.repeat(1500001)),ownerEnv({BUCKET}));assert.equal(response.status,413);assert.equal(writes,0);
+response=await app.fetch(request(zero),ownerEnv({BUCKET}));assert.equal(response.status,200);const result=await response.json();assert.equal(result.series,33);assert.equal(result.totalSeries,34,'An older series omitted by the new import must remain available');
 assert.equal(persisted.marketFeeds.priceRelayEnabled,true);assert.equal(persisted.marketFeeds.prices.series.find(s=>s.id===zero.prices.series[0].id).observations.find(o=>o.period===zero.prices.series[0].observations[0].period).value,0);
 assert.equal(persisted.marketFeeds.prices.series.find(s=>s.id===revisable.id).observations.find(o=>o.period==='2020-01-01').value,77,'Earlier omitted periods must be retained');
 assert.deepEqual(persisted.marketFeeds.prices.series.find(s=>s.id===preservedSeries.id),preservedSeries);
 for(const key of ['dataset','benchmarks','faostatPrices','supply','companies','automaticUpdates','cursor'])assert.deepEqual(persisted[key],initial[key],`${key} must survive a price import unchanged`);
 assert.deepEqual(persisted.marketFeeds.news,initial.marketFeeds.news,'Import must not replace news');
-response=await app.fetch(new Request('https://private.example/api/benchmarks'),{BUCKET});const shown=await response.json();assert.equal(shown.series.length,36,'World Bank and FAOSTAT series must remain alongside 34 retained market series');
-response=await app.fetch(new Request('https://private.example/api/status'),{BUCKET});const status=await response.json();assert.equal(status.prices.series,36);assert.equal(status.automaticUpdates.id,schedule.id);
+response=await app.fetch(ownerRequest('https://private.example/api/benchmarks'),ownerEnv({BUCKET}));const shown=await response.json();assert.equal(shown.series.length,36,'World Bank and FAOSTAT series must remain alongside 34 retained market series');
+response=await app.fetch(ownerRequest('https://private.example/api/status'),ownerEnv({BUCKET}));const status=await response.json();assert.equal(status.prices.series,36);assert.equal(status.automaticUpdates.id,schedule.id);
 console.log(JSON.stringify({passed:true,verifiedInputSeries:33,invalidCases:invalidCases.length+1,retainedSeries:34,combinedPriceSeries:36,checked:['official provenance','scheme/source/currency checks','duplicate and numeric validation','explicit zero','atomic rejection','retained missing series and periods','unrelated data and schedule preserved','readback']}));

@@ -24,7 +24,7 @@ async function getOfficialSource(url,type,limit,force){
  return {bytes,lastModified:response.headers.get('last-modified')};
 }
 async function importAtSite(path,download,type,sourceUrl,token){
- const headers={'OAI-Sites-Authorization':'Bearer '+token,'Content-Type':type};if(sourceUrl)headers['X-Source-URL']=sourceUrl;if(download.lastModified)headers['X-Source-Last-Modified']=download.lastModified;
+ const headers={'OAI-Sites-Authorization':'Bearer '+token,'X-Export-Edge-Update-Token':token,'Content-Type':type};if(sourceUrl)headers['X-Source-URL']=sourceUrl;if(download.lastModified)headers['X-Source-Last-Modified']=download.lastModified;
  const response=await fetch(SITE_ORIGIN+path,{method:'POST',headers,body:download.bytes,redirect:'error',signal:AbortSignal.timeout(120000)});
  if(!response.ok){await response.body?.cancel();throw Error(`Private Site import returned HTTP ${response.status}; previous data remains available`);}
  const bytes=await boundedBody(response,2_000_000);let result;try{result=JSON.parse(new TextDecoder().decode(bytes));}catch{throw Error('Private Site import did not return valid JSON');}return result;
@@ -33,7 +33,7 @@ const count=(result,names)=>{for(const name of names){const value=result?.[name]
 const asOf=result=>{for(const key of ['retrievedAt','importedAt','updatedAt','asOf']){const value=result?.[key]??result?.result?.[key];if(typeof value==='string'&&Number.isFinite(Date.parse(value)))return value;}return null;};
 async function privateDownload(path,type,limit,token){
  // Every authenticated request uses this fixed private origin and rejects redirects.
- const response=await fetch(SITE_ORIGIN+path,{headers:{'OAI-Sites-Authorization':'Bearer '+token,Accept:type},redirect:'error',signal:AbortSignal.timeout(120000)});
+ const response=await fetch(SITE_ORIGIN+path,{headers:{'OAI-Sites-Authorization':'Bearer '+token,'X-Export-Edge-Update-Token':token,Accept:type},redirect:'error',signal:AbortSignal.timeout(120000)});
  if(!response.ok){await response.body?.cancel();throw Error('Private connector download returned HTTP '+response.status);}
  const contentType=response.headers.get('content-type')||'';
  if(type==='text/javascript, application/javascript'&&!/(?:application|text)\/(?:java|ecma)script/i.test(contentType)){await response.body?.cancel();throw Error('Private connector did not return JavaScript');}
