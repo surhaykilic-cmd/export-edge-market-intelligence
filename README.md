@@ -1,8 +1,8 @@
 # Export Edge Market Intelligence
 
-GitHub source: https://github.com/surhaykilic-cmd/export-edge-market-intelligence (private repository).
+GitHub source: https://github.com/surhaykilic-cmd/export-edge-market-intelligence.
 
-This repository contains the **market intelligence application**: trade data, prices, production, news, and buyer/supplier discovery. The separate **Academy marketing website and waitlist** lives at https://exportedge.academy/ and has its own repository: https://github.com/surhaykilic-cmd/export-edge-academy. Keep each project's source, hosting identity, storage and deployment independent.
+This repository contains the **market intelligence application**: trade data, prices, production, news, and buyer/supplier discovery. The separate **Academy marketing website and waitlist** lives at https://exportedge.academy/ and has its own source repository.
 
 Shareable research platform inspired by the functions of Tridge's market-curations reference. It combines official trade observations, annual national producer prices, weekly/monthly market benchmarks, USDA production estimates, official news links and evidence-linked company discovery. Tridge's proprietary database and reports have not been copied. Broader commodity coverage remains a later phase.
 
@@ -90,13 +90,13 @@ node scripts/seed-sources.mjs
 
 Trade imports retain checkpoints and respect provider throttling. The source-seeding script requires the official World Bank workbook at `research/worldbank-monthly.xlsx`, refreshes the FAO catalogs, and writes the corresponding bootstrap files under `data/`. The original USDA supply extract can be reproduced with `research/extract-usda-production.py` from the official archive at `research/usda-psd.zip`; its output must be reconciled before replacing `data/supply.json`. Downloaded research ZIP/XLSX files are excluded from source control.
 
-Build output is `dist/server/index.js`. For publication, use the Sites source workflow to push and package that exact checked revision, then deploy its saved version while retaining owner-private access. Do not replace the hosting manifest with the old static-only configuration.
+Build output is `dist/server/index.js`. For publication, use the Sites source workflow to push and package that exact checked revision, then deploy its saved version while preserving the site's sharing settings. Do not replace the hosting manifest with the old static-only configuration.
 
 ## Data interpretation and source access
 
 Trade values are current US dollars, not quantities, current offer prices or proof of a profitable opportunity. Country aggregates do not identify individual buyers, suppliers or shipments. USDA quantities use marketing years and different native units, including 1,000 metric tonnes, carcass-weight equivalents and 1,000 60 kg bags; do not sum or compare unlike measures. Source release dates, retrieval times, observation periods, classifications and flags remain separate.
 
-FAO catalogs and FPMA series metadata are useful discovery layers, but they do not establish that the underlying observations are connected. Several registry sources require API keys, dataset-specific terms or licensed access. No paid data plan has been purchased. The application remains private; commercial/public redistribution requires checking the selected sources' terms.
+FAO catalogs and FPMA series metadata are useful discovery layers, but they do not establish that the underlying observations are connected. Several registry sources require API keys, dataset-specific terms or licensed access. No paid data plan has been purchased. Bundled data snapshots are subject to the terms of their respective sources.
 
 Tridge publicly names UN Comtrade, national customs databases and FAO, while describing a larger wholesale/farmgate network without disclosing its complete supplier inventory. Its public pages prohibit unauthorized bulk extraction. Comparable functions can be built from permitted evidence, but this implementation does not claim to contain every Tridge source, its company-resolution work or its proprietary product ontology.
 
