@@ -6,9 +6,9 @@ This repository contains the **market intelligence application**: trade data, pr
 
 Shareable research platform inspired by the functions of Tridge's market-curations reference. It combines official trade observations, annual national producer prices, weekly/monthly market benchmarks, USDA production estimates, official news links and evidence-linked company discovery. Tridge's proprietary database and reports have not been copied. Broader commodity coverage remains a later phase.
 
-Site: https://export-legacy-market-intelligence.surhay-nart.chatgpt.site
+Site: https://intel.exportedge.academy
 
-The product is branded Export Edge. The existing hosting address is retained for continuity with saved data and scheduled source updates.
+The original platform address remains available for scheduled data updates and existing links.
 
 The app uses the Academy's original logo, favicon and local Export Edge Round wordmark font, copied unchanged from its published website source (version 10, commit `83ed8136fa3c51b7f68889b260feb0b6aba8efa4`). The shared visual identity uses navy, blue and cyan; the app is explicitly labelled **Market Intelligence**. Its hosting project `appgprj_6ae3240b27bc8191a0dca39f64db666e` and R2 data remain separate from the Academy website project `appgprj_6abc20aac2e08191b402f615ef397e6b` and its D1 waitlist. Repository backups contain source and public seed data, never the live waitlist submissions.
 
